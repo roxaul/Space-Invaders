@@ -9,5 +9,7 @@ char tela[eixox,eixoy] //variavel da tela
 struct{
 char player='A';
 char laser='*';
-char inimigo
-}
+char inimigo='M';
+char escudo='@';
+char laserinimigo='U';
+}simbolos
