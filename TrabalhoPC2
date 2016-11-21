@@ -13,3 +13,4 @@ char inimigo='M';
 char escudo='@';
 char laserinimigo='U';
 }simbolos
+a
