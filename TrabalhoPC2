@@ -1,16 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
+
+int logo(){
+Sleep(500);
+printf("                           _                     _                \n");
+Sleep(500);
+printf("                          (_)                   | |               \n");
+Sleep(500);
+printf("  ___ _ __   __ _  ___ ___ _ _ ____   ____ _  __| | ___ _ __ ___  \n");
+Sleep(500);
+printf(" / __| '_ \ / _` |/ __/ _ \ | '_ \ \ / / _` |/ _` |/ _ \ '__/ __| \n");
+Sleep(500);
+printf(" \__ \ |_) | (_| | (_|  __/ | | | \ V / (_| | (_| |  __/ |  \__ \ \n");
+Sleep(500);
+printf(" |___/ .__/ \__,_|\___\___|_|_| |_|\_/ \__,_|\__,_|\___|_|  |___/ \n");
+Sleep(500);
+printf("     | |                                                          \n");
+Sleep(500);
+printf("     |_|                                                          \n");
+Sleep(500);
+printf("\n\n\n                         PRESS START");
+getch();
+return(0);
+}
+
 main(){
 //variaveis
 int eixox=23,eixoy=40; //tamanho da tela
-char tela[eixox,eixoy] //variavel da tela
-struct{
-char player='A';
-char laser='*';
-char inimigo='M';
-char escudo='@';
-char laserinimigo='U';
-}simbolos
-a
+char tela[eixox][eixoy]; //variavel da tela
+struct {
+char player;
+char laser;
+char inimigo;
+char escudo ;
+char laserinimigo;
+}simbolos;
+simbolos.escudo='@';
+simbolos.laserinimigo='U';
+simbolos.inimigo='V';
+simbolos.laser='*';
+simbolos.player='A';
+
+logo();
+}
