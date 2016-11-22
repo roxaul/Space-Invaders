@@ -23,6 +23,23 @@ printf("\n\n\n                         PRESS START");
 getch();
 return(0);
 }
+void inimigos(char inimigo,char escudo,int eixox,int eixoy,char tela[eixox][eixoy]){
+ int totalinimigo = 0,x,y;
+    for (x = 0; x < eixox; x ++) {
+        for (y = 0; y < eixoy; y ++) {
+            if ((y+1) % 2 == 0 && y < 7 && x > 4&& x < eixox - 5 && x % 2 ==0) {
+                tela[y][x] = inimigo;
+                totalinimigo ++;
+            }
+            else if ((y+1) % 2 == 0 && y >= 7 && y < 9 && x > 4&& x < eixox - 5 && x % 2 ==0){
+                tela[y][x] = escudo;
+                totalinimigo = totalinimigo + 2;
+            }
+            else {
+                tela[y][x] = ' ';
+            }
+        }
+    }}
 
 main(){
 //variaveis
@@ -42,4 +59,7 @@ simbolos.laser='*';
 simbolos.player='A';
 
 logo();
+system("cls");
+//inimigos(simbolos.inimigo,simbolos.laserinimigo,eixox,eixoy,tela[eixox][eixoy]);
+
 }
