@@ -1,19 +1,80 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
 
-int main()
-{
-    int sizey = 23;
+int logo(){
+Sleep(500);
+printf("                           _                     _                \n");
+Sleep(500);
+printf("                          (_)                   | |               \n");
+Sleep(500);
+printf("  ___ _ __   __ _  ___ ___ _ _ ____   ____ _  __| | ___ _ __ ___  \n");
+Sleep(500);
+printf(" / __| '_ \\ / _` |/ __/ _ \\ | '_ \\ \\ / / _` |/ _` |/ _ \\ '__/ __| \n");
+Sleep(500);
+printf(" \\__ \\ |_) | (_| | (_|  __/ | | | \\ V / (_| | (_| |  __/ |  \\__ \\ \n");
+Sleep(500);
+printf(" |___/ .__/ \\__,_|\\___\\___|_|_| |_|\\_/ \\__,_|\\__,_|\\___|_|  |___/ \n");
+Sleep(500);
+printf("     | |                                                          \n");
+Sleep(500);
+printf("     |_|                                                          \n");
+Sleep(500);
+printf("     A= Jogador                                                       \n");
+Sleep(500);
+printf("     @= Inimigo Protegido                                                 \n");
+Sleep(500);
+printf("     V= Inimigo                                                        \n");
+Sleep(500);
+printf("     Use as W,A,S,D para Movimentar e barra para atirar                      \n");
+Sleep(500);
+printf("\n\n\n                         PRESS START");
+getch();
+return(0);
+}
+char inimigos(char inimigo,char escudo,int eixox,int eixoy,char tela[eixox][eixoy]){
+ int totalinimigo = 0,x=0,y=0;
+    for (x = 0; x < eixox; x ++) {
+        for (y = 0; y < eixoy; y ++) {
+            if ((y+1) % 2 == 0 && y < 7 && x > 4&& x < eixox - 5 && x % 2 ==0) {
+                tela[y][x] = inimigo;
+                totalinimigo ++;
+            }
+            else if ((y+1) % 2 == 0 && y >= 7 && y < 9 && x > 4&& x < eixox - 5 && x % 2 ==0){
+                tela[y][x] = escudo;
+                totalinimigo = totalinimigo + 2;
+            }
+            else {
+                tela[y][x] = ' ';
+            }
+        }
+    }
+	return(0);}
+
+main(){
+//variaveis
+int eixox=23,eixoy=40; //tamanho da tela
+char tela[eixox][eixoy]; //variavel da tela
+struct {
+char player;
+char laser;
+char inimigo;
+char escudo ;
+char laserinimigo;
+}simbolos;
+simbolos.escudo='@';
+simbolos.laserinimigo='U';
+simbolos.inimigo='V';
+simbolos.laser='*';
+simbolos.player='A';
+ int sizey = 23;
     int sizex = 40;
     int x, y, yi;
     char world[sizey][sizex];
     char player = 'A';
-    char playerLaser = '^';
-    char enemy = 'M';
-    char enemyShielded = 'O';
+    char playerLaser = '*';
+    char enemy = 'V';
+    char enemyShielded = '@';
     char enemyLaser = 'U';
     char explosion = 'X';
     int score = 0;
@@ -21,22 +82,9 @@ int main()
     int laserReady = 1;
     int enemyReady = 0;
 
-    srand(time(NULL));
-
-    /*welcome screen*/
-    printf("\n \n     Welcome soldier! \n \n \n \n");
-    Sleep(1000);
-    printf("  Brave the COMMAND PROMPT INVADERS and come back a hero. \n \n \n \n");
-    Sleep(2500);
-    printf("  Your operating system is depending upon you. \n \n \n \n");
-    Sleep(2500);
-    printf("               Good luck.");
-    Sleep(1000);
-    printf("\n \n \n \n Press any key to start.");
-    getch();
-
-    /*initialise world*/
-    int totalEnemies = 0;
+logo();
+system("cls");
+ int totalEnemies = 0;
     for (x = 0; x < sizex; x ++) {
         for (y = 0; y < sizey; y ++) {
             if ((y+1) % 2 == 0 && y < 7 && x > 4
@@ -64,7 +112,6 @@ int main()
         int enemySpeed = 1 + 10 * currentEnemies / totalEnemies;
         laserReady ++;
 
-        /*display world*/
         system("cls");
         printf("     SCORE:    %d", score);
         printf("\n");
@@ -77,7 +124,6 @@ int main()
             printf("\n");
             }
 
-        /*laser time*/
         for (x = 0; x < sizex; x ++) {
             for (y = sizey-1; y >= 0; y --) {
                 if (i%2 == 0 && world[y][x] == enemyLaser
@@ -142,7 +188,6 @@ int main()
             }
         }
 
-        /*update enemy direction*/
         for (y = 0; y < sizey; y ++) {
             if (world[y][0] == enemy) {
                 direction = 'r';
@@ -156,7 +201,6 @@ int main()
             }
         }
 
-        /*update board*/
         if (i % enemySpeed == 0) {
             if (direction == 'l') {
                 for (x = 0; x < sizex - 1; x ++) {
@@ -197,7 +241,6 @@ int main()
             }
         }
 
-        /*control player*/
         if(kbhit()){
             keyPress = getch();
         }
@@ -269,3 +312,4 @@ int main()
         getch();
     }
 }
+
