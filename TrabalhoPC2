@@ -9,11 +9,11 @@ printf("                          (_)                   | |               \n");
 Sleep(500);
 printf("  ___ _ __   __ _  ___ ___ _ _ ____   ____ _  __| | ___ _ __ ___  \n");
 Sleep(500);
-printf(" / __| '_ \ / _` |/ __/ _ \ | '_ \ \ / / _` |/ _` |/ _ \ '__/ __| \n");
+printf(" / __| '_ \\ / _` |/ __/ _ \\ | '_ \\ \\ / / _` |/ _` |/ _ \\ '__/ __| \n");
 Sleep(500);
-printf(" \__ \ |_) | (_| | (_|  __/ | | | \ V / (_| | (_| |  __/ |  \__ \ \n");
+printf(" \__ \\ |_) | (_| | (_|  __/ | | | \\ V / (_| | (_| |  __/ |  \\__ \\ \n");
 Sleep(500);
-printf(" |___/ .__/ \__,_|\___\___|_|_| |_|\_/ \__,_|\__,_|\___|_|  |___/ \n");
+printf(" |___/ .__/ \\__,_|\\___\\___|_|_| |_|\\_/ \\__,_|\\__,_|\\___|_|  |___/ \n");
 Sleep(500);
 printf("     | |                                                          \n");
 Sleep(500);
@@ -24,7 +24,7 @@ getch();
 return(0);
 }
 void inimigos(char inimigo,char escudo,int eixox,int eixoy,char tela[eixox][eixoy]){
- int totalinimigo = 0,x,y;
+ int totalinimigo = 0,x=0,y=0;
     for (x = 0; x < eixox; x ++) {
         for (y = 0; y < eixoy; y ++) {
             if ((y+1) % 2 == 0 && y < 7 && x > 4&& x < eixox - 5 && x % 2 ==0) {
@@ -39,7 +39,8 @@ void inimigos(char inimigo,char escudo,int eixox,int eixoy,char tela[eixox][eixo
                 tela[y][x] = ' ';
             }
         }
-    }}
+    }
+	return(0);}
 
 main(){
 //variaveis
@@ -60,6 +61,6 @@ simbolos.player='A';
 
 logo();
 system("cls");
-//inimigos(simbolos.inimigo,simbolos.laserinimigo,eixox,eixoy,tela[eixox][eixoy]);
+inimigos(simbolos.inimigo,simbolos.laserinimigo,eixox,eixoy,tela[eixox][eixoy]);
 
 }
